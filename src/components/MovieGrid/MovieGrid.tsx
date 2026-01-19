@@ -14,7 +14,7 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
       {movies.map((movie) => {
         const posterUrl = movie.poster_path
           ? `${IMAGE_BASE_URL}${movie.poster_path}`
-          : "/no-poster.png"; // фолбек
+          : "/no-poster.png"; 
 
         return (
           <li key={movie.id} className={styles.item}>
