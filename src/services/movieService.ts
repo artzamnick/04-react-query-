@@ -10,11 +10,16 @@ const tmdbApi = axios.create({
   baseURL: "https://api.themoviedb.org/3",
 });
 
-export async function fetchMovies(query: string, page: number): Promise<SearchMoviesResponse> {
+export async function fetchMovies(
+  query: string,
+  page: number
+): Promise<SearchMoviesResponse> {
   const token = import.meta.env.VITE_TMDB_TOKEN as string | undefined;
 
   if (!token) {
-    throw new Error("VITE_TMDB_TOKEN is missing. Check your .env and restart dev server.");
+    throw new Error(
+      "VITE_TMDB_TOKEN is missing. Add it to Vercel env and restart server."
+    );
   }
 
   const { data } = await tmdbApi.get<SearchMoviesResponse>("/search/movie", {
@@ -29,6 +34,5 @@ export async function fetchMovies(query: string, page: number): Promise<SearchMo
     },
   });
 
-  
   return data;
 }

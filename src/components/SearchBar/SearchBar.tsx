@@ -19,7 +19,7 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
     }
 
     onSubmit(query);
-    e.currentTarget.reset(); 
+    e.currentTarget.reset();
   }
 
   return (
